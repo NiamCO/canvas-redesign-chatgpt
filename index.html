@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Redesign Concept</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app" data-theme="midnight">
+      <aside class="sidebar">
+        <div class="sidebar__top">
+          <div class="logo">C</div>
+          <div>
+            <h2>Canvas</h2>
+            <p>BetterCampus concept</p>
+          </div>
+        </div>
+
+        <nav class="sidebar__nav">
+          <button class="nav-item active">Dashboard</button>
+          <button class="nav-item">Courses</button>
+          <button class="nav-item">Calendar</button>
+          <button class="nav-item">Inbox</button>
+          <button class="nav-item">Assignments</button>
+          <button class="nav-item">Grades</button>
+          <button class="nav-item">Notes</button>
+        </nav>
+
+        <div class="sidebar__courses">
+          <h3>Courses</h3>
+          <ul>
+            <li><span class="dot"></span> MATH101</li>
+            <li><span class="dot"></span> ENGL101</li>
+            <li><span class="dot"></span> PSYC101</li>
+            <li><span class="dot"></span> SPAN101</li>
+          </ul>
+        </div>
+
+        <div class="sidebar__footer">
+          <div class="theme-toggle">
+            <label class="switch">
+              <input id="darkModeToggle" type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+            <span>Dark mode</span>
+          </div>
+          <div class="theme-picker">
+            <label for="themeSelect">Theme</label>
+            <select id="themeSelect">
+              <option value="midnight">Midnight</option>
+              <option value="sage">Sage</option>
+              <option value="sunset">Sunset</option>
+              <option value="berry">Berry</option>
+            </select>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <h1>Dashboard</h1>
+            <p>All your courses in one place</p>
+          </div>
+          <div class="topbar__actions">
+            <button class="ghost">Customize</button>
+            <button class="primary">New note</button>
+          </div>
+        </header>
+
+        <section class="dashboard">
+          <div class="dashboard__cards">
+            <article class="course-card" data-course="MATH101">
+              <div class="course-card__header">
+                <span class="badge">88%</span>
+                <button class="icon">•••</button>
+              </div>
+              <h3>Calculus I</h3>
+              <p>MATH101</p>
+              <div class="course-card__meta">
+                <span>Due</span>
+                <strong>Quiz 2</strong>
+              </div>
+              <ul class="course-card__list">
+                <li>
+                  Assignment 18: Applying derivatives
+                  <span>Aug 30</span>
+                </li>
+                <li>
+                  Assignment 19: Optimization
+                  <span>Sep 4</span>
+                </li>
+              </ul>
+            </article>
+
+            <article class="course-card" data-course="ENGL101">
+              <div class="course-card__header">
+                <span class="badge">92%</span>
+                <button class="icon">•••</button>
+              </div>
+              <h3>English Composition</h3>
+              <p>ENGL101</p>
+              <div class="course-card__meta">
+                <span>Due</span>
+                <strong>Essay draft</strong>
+              </div>
+              <ul class="course-card__list">
+                <li>
+                  Assignment 12: Rhetorical analysis
+                  <span>Aug 30</span>
+                </li>
+                <li>
+                  Assignment 13: Peer review
+                  <span>Sep 2</span>
+                </li>
+              </ul>
+            </article>
+
+            <article class="course-card" data-course="PSYC101">
+              <div class="course-card__header">
+                <span class="badge">84%</span>
+                <button class="icon">•••</button>
+              </div>
+              <h3>Introduction to Psychology</h3>
+              <p>PSYC101</p>
+              <div class="course-card__meta">
+                <span>Due</span>
+                <strong>Midterm exam</strong>
+              </div>
+              <ul class="course-card__list">
+                <li>
+                  Assignment 9: Remembering...
+                  <span>Sep 1</span>
+                </li>
+                <li>
+                  Week 10: What are the...
+                  <span>Sep 4</span>
+                </li>
+              </ul>
+            </article>
+
+            <article class="course-card" data-course="SPAN101">
+              <div class="course-card__header">
+                <span class="badge">88%</span>
+                <button class="icon">•••</button>
+              </div>
+              <h3>Intro to Spanish Language</h3>
+              <p>SPAN101</p>
+              <div class="course-card__meta">
+                <span>Due</span>
+                <strong>Listening quiz</strong>
+              </div>
+              <ul class="course-card__list">
+                <li>
+                  Assignment 18: Watch a clip
+                  <span>Aug 30</span>
+                </li>
+                <li>
+                  Assignment 19: Write response
+                  <span>Sep 2</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <aside class="dashboard__side">
+            <section class="panel">
+              <header>
+                <h2>To-Do</h2>
+                <button class="ghost" id="todoViewToggle">Week</button>
+              </header>
+              <ul class="todo-list" id="todoList">
+                <li data-preview="Finish the calculus quiz in Canvas, then review derivatives.">
+                  <div>
+                    <strong>Quiz 2</strong>
+                    <p>MATH101 • Due Aug 30</p>
+                  </div>
+                  <button class="ghost">Preview</button>
+                </li>
+                <li data-preview="Draft your rhetorical analysis with citations and peer feedback.">
+                  <div>
+                    <strong>Essay draft</strong>
+                    <p>ENGL101 • Due Aug 30</p>
+                  </div>
+                  <button class="ghost">Preview</button>
+                </li>
+                <li data-preview="Complete the practice questions before the midterm review session.">
+                  <div>
+                    <strong>Midterm review</strong>
+                    <p>PSYC101 • Due Sep 1</p>
+                  </div>
+                  <button class="ghost">Preview</button>
+                </li>
+              </ul>
+            </section>
+
+            <section class="panel">
+              <header>
+                <h2>GPA Calculator</h2>
+                <button class="ghost" id="gpaReset">Reset</button>
+              </header>
+              <div class="gpa">
+                <div class="gpa__scores">
+                  <div>
+                    <span>Current</span>
+                    <strong id="gpaCurrent">3.46</strong>
+                  </div>
+                  <div>
+                    <span>Weighted</span>
+                    <strong id="gpaWeighted">3.76</strong>
+                  </div>
+                  <div>
+                    <span>Cumulative</span>
+                    <strong id="gpaCumulative">3.21</strong>
+                  </div>
+                </div>
+                <form id="gpaForm">
+                  <label>
+                    Course grade
+                    <input type="number" min="0" max="100" value="92" />
+                  </label>
+                  <label>
+                    Credits
+                    <input type="number" min="0" max="8" value="4" />
+                  </label>
+                  <label>
+                    Weight (AP/Honors)
+                    <input type="number" min="0" max="2" step="0.25" value="0.5" />
+                  </label>
+                  <button class="primary" type="submit">Add course</button>
+                </form>
+              </div>
+            </section>
+
+            <section class="panel notes">
+              <header>
+                <h2>Notes</h2>
+                <button class="ghost">New</button>
+              </header>
+              <textarea placeholder="Add quick notes, reminders, or study ideas..."></textarea>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal" id="previewModal" aria-hidden="true">
+      <div class="modal__content">
+        <h3 id="previewTitle">Assignment preview</h3>
+        <p id="previewBody"></p>
+        <button class="primary" id="closePreview">Close</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
